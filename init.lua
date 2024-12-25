@@ -12,3 +12,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- NOTE: The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+vim.keymap.set('n', '<leader><leader>s', '<cmd>so ~/.config/nvim/lua/soham/snippets.lua<CR>')
+require 'soham.snippets'

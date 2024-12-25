@@ -321,9 +321,24 @@ return {
       -- See `:help cmp`
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
-      luasnip.config.setup {}
+      luasnip.config.setup {
+        history = true,
+      }
 
       cmp.setup {
+        formatting = {
+          fields = { 'menu', 'abbr', 'kind' },
+          expandable_indicator = true,
+          format = function(entry, vim_item)
+            vim_item.menu = ({
+              luasnip = '[Snippet]',
+              nvim_lsp = '[LSP]',
+              buffer = '[Buffer]',
+              path = '[Path]',
+            })[entry.source.name]
+            return vim_item
+          end,
+        },
         snippet = {
           expand = function(args)
             luasnip.lsp_expand(args.body)
