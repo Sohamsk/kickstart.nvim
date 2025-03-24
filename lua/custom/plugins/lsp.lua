@@ -110,7 +110,6 @@ return {
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
           map('K', vim.lsp.buf.hover, '[H]int')
           map('ve', vim.diagnostic.open_float, '[V]iew [E]rror')
-
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
           --    See `:help CursorHold` for information about when this is executed
@@ -180,6 +179,7 @@ return {
       local servers = {
         clangd = {},
         gopls = {},
+        hls = {},
         -- pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
